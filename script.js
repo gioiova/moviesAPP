@@ -49,7 +49,7 @@ function showMovies(movies) {
           <div class="text-lg text-gray-800">${release_date}</div>
         </div>
           <p class=" text-gray-400 max-h-40 overflow-y-hidden">${overview.slice(0,70)}</p>
-        <div class="flex text-2xl font-bold text-a">$83.90</div>
+        <div class="flex text-2xl font-bold text-a">$9.99</div>
       </div>
 
     </div>
@@ -78,7 +78,13 @@ form.addEventListener("submit",(e) => {
     //not refresh when clicking search button
     e.preventDefault();
     const searchTerm = search.value;
+
+    if(searchTerm === "") {
+      return getMovies(API_URL)
+    }else{
+      getMovies(SEARCH_API + searchTerm)
+    }
     
-    getMovies(SEARCH_API + searchTerm)
+    
 })
 

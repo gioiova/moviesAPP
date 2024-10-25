@@ -44,7 +44,7 @@ function showMovieDetails(movie) {
           <div class="text-lg text-gray-800">${release_date}</div>
         </div>
           <p class=" text-gray-400 max-h-40 overflow-y-hidden">${overview.slice(0,70)}</p>
-        <div class="flex text-2xl font-bold text-a">$83.90</div>
+        <div class="flex text-2xl font-bold text-a">$9.99</div>
       </div>
 
     </div>
@@ -125,10 +125,15 @@ function updateSummary() {
 
 }
 
-buyButton.addEventListener("click",() => {
-  if(selectedSeats.length > 0) {
-    alert(`you have boked ${selectedSeats.join(",")} seats`)
-  }else {
-    alert("please select a seat")
+buyButton.addEventListener("click", () => {
+  if (selectedSeats.length > 0) {
+    const total = selectedSeats.length * seatPrice;
+    const seatNumbers = selectedSeats.join(",");
+    
+    window.location.href = `checkout.html?seats=${seatNumbers}&totalPrice=${total}`;
+  } else {
+    alert("Please select at least one seat.");
   }
-})
+});
+
+

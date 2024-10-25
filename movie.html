@@ -8,16 +8,20 @@
   <body>
     <div id="movie-container"></div>
 
-    <div id="seat-map"></div>
-    <div class="container m-auto">
-      <div>
-        <p>selected seats : <span id="selected-seats">0</span></p>
-        <p>total price : <span id="total-price">0</span></p>
-      </div>
-      <button id="buy-button">Buy</button>
+    <div id="seat-map">
+      
+      
     </div>
-    <script src="./movie.js"></script>
+    <div class="container m-auto ">
+      <div>
+        <p class="font-bold text-xl">selected seats : <span id="selected-seats">0</span></p>
+        <p class="font-bold text-xl">total price : <span id="total-price">0</span></p>
+      </div>
+      <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-bold hover:text-white py-4 mt-2 px-12 border border-blue-500 hover:border-transparent rounded" id="buy-button">Buy</button>
+    </div>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./movie.js"></script>
+
 
     <style>
       #seat-map {

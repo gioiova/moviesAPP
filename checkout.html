@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+  </head>
+  <body>
+    <h1>Checkout</h1>
+    <p class="font-bold text-xl">Total Price: <span id="checkout-price">0</span></p>
+
+    <script>
+      // Function to get query parameters from URL
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      // Display total price from URL in checkout page
+      document.getElementById("checkout-price").textContent = getQueryParam("totalPrice");
+    </script>
+  </body>
+</html>
