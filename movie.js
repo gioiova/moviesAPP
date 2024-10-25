@@ -25,7 +25,7 @@ async function getMovieDetails(API_URL) {
 
 
 function showMovieDetails(movie) {
-    const {title,poster_path,vote_average,overview,release_date} = movie;
+    const {title,poster_path,vote_average,overview,release_date, id} = movie;
     const movieEl = document.createElement("div");
 
         movieEl.innerHTML = `
@@ -129,8 +129,9 @@ buyButton.addEventListener("click", () => {
   if (selectedSeats.length > 0) {
     const total = selectedSeats.length * seatPrice;
     const seatNumbers = selectedSeats.join(",");
+    const id = movieId
     
-    window.location.href = `checkout.html?seats=${seatNumbers}&totalPrice=${total}`;
+    window.location.href = `checkout.html?seats=${seatNumbers}&totalPrice=${total}&id=${id}`;
   } else {
     alert("Please select at least one seat.");
   }
