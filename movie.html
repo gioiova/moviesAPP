@@ -3,44 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Movie Seat Booking</title>
   </head>
-  <body>
-    <div id="movie-container"></div>
-
-    <div id="seat-map">
-      
-      
-    </div>
-    <div class="container m-auto ">
-      <div>
-        <p class="font-bold text-xl">selected seats : <span id="selected-seats">0</span></p>
-        <p class="font-bold text-xl">total price : <span id="total-price">0</span></p>
+  <body class="min-h-screen bg-gray-100">
+=    <div class="container mx-auto px-4 py-8">
+      <div id="movie-container" class="mb-8">
       </div>
-      <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-bold hover:text-white py-4 mt-2 px-12 border border-blue-500 hover:border-transparent rounded" id="buy-button">Buy</button>
+
+      <div class="max-w-4xl mx-auto px-6 md:px-12 lg:px-20">
+        <div id="seat-map" class="flex flex-wrap justify-center items-center gap-2 mt-8 md:mt-16">
+        </div>
+      </div>
+
+      <div class="max-w-md mx-auto mt-12 px-4">
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <p class="text-lg md:text-xl font-bold mb-3">
+            Selected Seats: <span id="selected-seats" class="text-blue-600">0</span>
+          </p>
+          <p class="text-lg md:text-xl font-bold mb-4">
+            Total Price: $<span id="total-price" class="text-blue-600">0</span>
+          </p>
+          
+          <button 
+            id="buy-button"
+            class="w-full md:w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-200 ease-in-out transform hover:scale-105"
+          >
+            Buy Tickets
+          </button>
+        </div>
+
+        <div class="mt-6 flex flex-wrap justify-center gap-4">
+          <div class="flex items-center">
+            <div class="w-6 h-6 bg-gray-300 rounded mr-2"></div>
+            <span class="text-sm">Available</span>
+          </div>
+          <div class="flex items-center">
+            <div class="w-6 h-6 bg-red-500 rounded mr-2"></div>
+            <span class="text-sm">Selected</span>
+          </div>
+          <div class="flex items-center">
+            <div class="w-6 h-6 bg-blue-500 rounded mr-2"></div>
+            <span class="text-sm">Occupied</span>
+          </div>
+        </div>
+      </div>
     </div>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./movie.js"></script>
 
-
     <style>
-      #seat-map {
-        margin-top: 200px;
-      }
       .seat {
-        width: 50px;
-        height: 50px;
-        background-color: #ccc;
-        margin: 5px;
+        width: 32px;
+        height: 32px;
+        background-color: #cbd5e1;
+        margin: 3px;
         display: inline-block;
         cursor: pointer;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+
+      @media (min-width: 768px) {
+        .seat {
+          width: 40px;
+          height: 40px;
+          margin: 4px;
+        }
       }
 
       .seat.selected {
-        background-color: #f00;
+        background-color: #ef4444;
+        transform: scale(1.1);
       }
+
       .seat.occupied {
-        background-color: blue;
+        background-color: #3b82f6;
+        cursor: not-allowed;
+      }
+
+      .rotate-x-5 {
+        transform: rotateX(5deg);
+      }
+      .perspective-1000 {
+        perspective: 1000px;
       }
     </style>
   </body>
